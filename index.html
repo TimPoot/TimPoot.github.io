@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Proefstuderen Informatica Alignment Werkcollege</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+  </head>
+  <body>
+    <div id="main">  
+     <h1>Computational Molecular Biology</h1>
+
+      Ook het algoritme van alignment kan in een spreadsheet worden gestopt. Reserveer een stuk van het rekenblad voor een matrix. Zet in de bovenste rij en de eerste kolom een reeks (DNA) letters die de twee strings voorstellen. Laat ruimte voor een nulde kolom en een nulde rij (net als in het algoritme). 
+</br> </br>
+<b>stap 1.</b> Bepaal een formule die de letters met elkaar vergelijkt. In iedere cel moet je de letter bovenaan de kolom vergelijken met die vooraan de rij. Je hebt hier zowel absolute als relatieve adressen nodig,bijvoorbeeld: de cel in de eerste rij (absoluut) van dezelfde kolom (relatief).
+Je kunt een vergelijking met twee uitkomsten opgeven met een test die als volgt in excel gegeven wordt: IF(test,waarde,onwaarde)
+Bijvoorbeeld IF(B1=C1,-3,1) wil zeggen, als cel B1 dezelfde waarde heeft als cel C1 dan heeft de huidige cel waarde -3, anders is die waarde 1. 
+</br> </br>
+
+<b>stap 2.</b> Bepaal de formules die de matrix initialiseren, dwz. de nulde kolom en nulde rij vullen met de initiele waarden (het aantal posities maal de gap-penalty).
+</br> </br>
+
+<b>stap 3.</b> De formule die de letter boven de kolom vergelijkt met de letter vooraan de rij levert de straf/beloning in de cel voor de (mis)match. Die moet nu aangevuld worden met een maximum van de drie buurwaarden.
+Het maximum van drie waardes wordt berekend door MAX(w1,w2,w3)
+</br> </br>
+
+<em>Hint:</em> <p id="hint">In cel E7 zit de formule =MAX(E6-1,D7-1,D6+ALS(E$3=$A7,2,-1))</p>
+
+<b>stap 4.</b> Als extraatje kun je drie cellen gebruiken om de waardes voor match, mismatch en gap-penalty in te zetten. Als de formules naar deze (absolute) adressen verwijzen kun je de drie variabelen naar keuze aanpassen.
+</br> </br>
+
+<b>stap 5.</b> Het is ook mogelijk de backtrace informatie door kleuren in de cellen aan te geven. Als de waarde van een cel precies de match scheelt met de linkerbovenbuur dan volgt de alignment de diagonaal (of moet dan nog getest worden of de letters ook gelijk zijn?). Iets vergelijkbaars bij mismatch. </br></br>
+    <img src="http://liacs.leidenuniv.nl/~hoogeboomhj/praatjes/lapp-top/align-kleur.jpg"></img>
+    </div>
+  </body>
+</html>
